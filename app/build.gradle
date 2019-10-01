@@ -66,7 +66,7 @@ android {
             zipAlignEnabled true
             debuggable false
 
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles 'proguard-android-optimize.txt', 'proguard-rules.txt'
 
             buildConfigField("boolean", "TESTING_BUILD", "false")
@@ -94,7 +94,6 @@ play {
     serviceAccountCredentials = file('/tmp/apk_upload_key.p12')
 }
 
-//verifying release-notes file
 File playStoreWhatsNewFile = file("${project.projectDir}/src/main/play/release-notes/en-US/${System.getProperty('deployChannel', 'alpha')}.txt")
 if (!playStoreWhatsNewFile.exists()) {
     throw new FileNotFoundException("Can not find whatsnew file for Play-Store upload!")
